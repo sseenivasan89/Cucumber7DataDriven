@@ -25,7 +25,7 @@ public class LoginSteps {
 		loginPage = new LoginPage(driver);
 		commonPages = new CommonPages(driver);
 		commonPages.launchApplication();
-		assertEquals(loginPage.loginToApplication(), false);
+		assertEquals(loginPage.loginToApplication(), true);
 	}
 
 }

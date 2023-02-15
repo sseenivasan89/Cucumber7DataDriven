@@ -10,6 +10,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import com.abc.basesetup.TestBase;
 import com.abc.stepdefinitions.CommonSteps;
 import com.abc.utilities.ExcelReader;
+import com.abc.utilities.Utility;
 
 public class LoginPage {
 
@@ -18,16 +19,16 @@ public class LoginPage {
 
 	ExcelReader excelReader;
 
-	@FindBy(id = "txtUsername")
+	@FindBy(name = "username")
 	WebElement userNameBox;
 
-	@FindBy(id = "txtPassword")
+	@FindBy(name = "password")
 	WebElement passwordBox;
 
-	@FindBy(id = "btnLogin")
+	@FindBy(xpath = "//*[@type='submit']")
 	WebElement loginButton;
 
-	@FindBy(id = "welcome")
+	@FindBy(xpath = "//*[@class='oxd-userdropdown']")
 	WebElement userProfileIcon;
 
 	public LoginPage(WebDriver driver) {
@@ -36,11 +37,14 @@ public class LoginPage {
 		this.wait = TestBase.getWebDriverWait();
 	}
 
-	public boolean loginToApplication() {
+	public boolean loginToApplication()  {
 		boolean isLoginSuccess = false;
 		excelReader = new ExcelReader(CommonSteps.row_number, CommonSteps.sheetName);
+		Utility.highLighterMethod(driver, userNameBox);
 		userNameBox.sendKeys(CommonSteps.excelReader.fieldsAndValues.get("username"));
+		Utility.highLighterMethod(driver, passwordBox);
 		passwordBox.sendKeys(CommonSteps.excelReader.fieldsAndValues.get("password"));
+		Utility.highLighterMethod(driver, loginButton);
 		loginButton.click();
 		wait.until(ExpectedConditions.visibilityOf(userProfileIcon));
 		isLoginSuccess = userProfileIcon.isDisplayed();

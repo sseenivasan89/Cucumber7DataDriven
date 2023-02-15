@@ -35,7 +35,7 @@ public class TestBase {
 			break;
 		}
 		driver.manage().window().maximize();
-		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(60));
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
 		return driver;
 	}
 
@@ -44,7 +44,7 @@ public class TestBase {
 	}
 	
 	public static WebDriverWait getWebDriverWait() {
-		wait = new WebDriverWait(driver, Duration.ofSeconds(60));
+		wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 		return wait;
 	}
 
