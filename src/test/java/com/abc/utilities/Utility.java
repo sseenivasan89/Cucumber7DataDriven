@@ -8,7 +8,7 @@ public class Utility {
 	
 	public static void highLighterMethod(WebDriver driver, WebElement element){
 		JavascriptExecutor js = (JavascriptExecutor) driver;
-		js.executeScript("arguments[0].setAttribute('style', 'background: yellow; border: 2px solid red;');", element);
+		js.executeScript("arguments[0].setAttribute('style', 'background: white; border: 2px solid red;');", element);
 		try {
 			Thread.sleep(1000);
 		} catch (Exception e) {

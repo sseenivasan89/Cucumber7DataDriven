@@ -6,7 +6,6 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class TestBase {
 
@@ -24,11 +23,9 @@ public class TestBase {
 
 		switch (browserName) {
 		case "chrome":
-			WebDriverManager.chromedriver().setup();
 			driver = new ChromeDriver();
 			break;
 		case "edge":
-			WebDriverManager.edgedriver().setup();
 			driver = new EdgeDriver();
 			break;
 		default:
