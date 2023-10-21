@@ -41,7 +41,7 @@ public class Hooks {
 
 		}
 		testBase.getDriver().close();
-
+		testBase.getDriver().quit();
 	}
 
 }

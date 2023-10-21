@@ -23,7 +23,7 @@ public class ExcelReader {
     private int numberOfColumns;
     private XSSFCell cell;
     
-    public static  HashMap<String, String> fieldsAndValues;
+    public HashMap<String, String> fieldsAndValues;
 
     public ExcelReader(String testId, String sheetName) {
         file = new File("src\\test\\resources\\dataSheet.xlsx");
